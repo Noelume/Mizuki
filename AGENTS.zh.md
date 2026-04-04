@@ -1,52 +1,41 @@
-# 仓库指南（中文）
+﻿# 仓库指南（中文）
 
 ## 项目结构与模块组织
-Mizuki 是一个 Astro + Svelte 项目。
-- `src/pages/`：Astro 文件路由与接口端点（如 `*.json.ts`、`rss.xml.ts`）。
-- `src/components/`：分层 UI（`atoms`、`features`、`organisms`、`widgets`、`layout`、`misc`）。
-- `src/content/`：Markdown 内容集合（`posts`、`spec`），由 `src/content.config.ts` 管理。
-- `src/data/`、`src/utils/`、`src/constants/`、`src/i18n/`：业务数据、工具逻辑、常量、多语言。
-- `public/`：静态资源（图片、音乐、字体、脚本、模型文件），构建时原样输出。
-- `scripts/`：内容同步、构建和维护脚本。
-- `docs/rule/`：组件架构、拆分、文件组织、CSS 规范。
+Mizuki 是 Astro + Svelte 项目，主要目录如下：
+- `src/pages/`：页面路由与 API 路由（Astro 文件路由）。
+- `src/components/`：组件分层（`atoms`、`features`、`organisms`、`widgets` 等）。
+- `src/content/`：内容集合（`posts`、`spec`），由 `src/content.config.ts` 定义 schema。
+- `src/data/`：结构化数据（如 `projects.ts`、`timeline.ts`）。
+- `public/`：静态资源（图片、音乐、字体、脚本等）。
+- `scripts/`：内容同步、构建、维护脚本。
+- `docs/rule/`：组件架构、文件组织、CSS 规范。
 
-遵循 Astro 约定：`src/pages` 下文件即路由；动态路由使用方括号命名（例如 `src/pages/posts/[...slug].astro`）。
+## 开发与检查命令
+- `pnpm dev`：本地开发（`localhost:4321`）。
+- `pnpm build`：生产构建（含 pagefind 与字体压缩）。
+- `pnpm check`：Astro 检查。
+- `pnpm lint`：ESLint（自动修复）。
+- `pnpm format`：Prettier 格式化。
+- `pnpm type-check`：TypeScript 类型检查。
 
-## 构建、测试与开发命令
-仅使用 `pnpm`（`preinstall` 强制）。
-- `pnpm install`：安装依赖。
-- `pnpm dev` / `pnpm start`：启动本地开发服务（`localhost:4321`）。
-- `pnpm build`：生产构建（`astro build` + pagefind + 字体压缩）。
-- `pnpm preview`：本地预览 `dist/`。
-- `pnpm check`：运行 `astro check`。
-- `pnpm type-check`：TypeScript 类型检查（`tsc --noEmit`）。
-- `pnpm lint`：对 `src/` 运行 ESLint（带自动修复）。
-- `pnpm format`：对 `src/` 运行 Prettier。
-- `pnpm new-post <slug>`：创建新文章模板。
+提交 PR 前至少运行：`pnpm lint`、`pnpm check`、`pnpm build`。
 
-## 代码风格与命名规范
-以仓库配置为准：`eslint.config.js`、`.prettierrc`、`tsconfig.json`。
-- 格式：Tab 缩进、行宽 80、分号、双引号；CSS 使用 2 空格缩进。
-- 命名：组件文件 PascalCase（如 `PostCard.astro`）；工具模块 kebab-case（如 `date-utils.ts`）；复杂模块建议同目录 `types.ts`。
-- 导入：优先使用路径别名（`@components/*`、`@utils/*`、`@/*`），并保持 import 排序。
-- 架构：优先复用原子组件，遵循 `docs/rule/*` 的分层与拆分原则。
+## 代码规范（结合项目文档）
+- 命名：组件文件 `PascalCase`，工具文件 `kebab-case`。
+- 格式：以 `.prettierrc` 为准（Tab、行宽 80；CSS 2 空格）。
+- 导入：优先使用 `tsconfig.json` 中的路径别名（如 `@components/*`）。
+- 架构：优先复用 atom 组件，遵循 `docs/rule/*` 的分层拆分原则。
 
-## 测试与提交流程
-当前未强制单元测试框架，PR 最低检查项：
-- `pnpm lint`
-- `pnpm check`
-- `pnpm build`
+## 内容同步逻辑（重点）
+`predev` / `prebuild` 会执行 `scripts/sync-content.js`：
+- `ENABLE_CONTENT_SYNC=false`：不做同步，使用本地 `src/content`、`src/data`、`public/images`。
+- `ENABLE_CONTENT_SYNC=true`：从 `CONTENT_DIR`（默认 `./content`）同步并映射。
 
-涉及性能的改动建议额外运行 `pnpm performance:check`。
-
-提交信息建议使用 Conventional Commit（`feat:`、`fix:`、`refactor:`，可加 scope）。PR 需包含变更说明、关联 issue（如有）、UI 截图/GIF（如有）以及本地检查通过说明。
-
-## 内容同步安全说明（`.env`）
-`predev` 和 `prebuild` 都会执行 `scripts/sync-content.js`。
-- `ENABLE_CONTENT_SYNC=false`：同步脚本会提前退出，直接使用本地 `src/content`、`src/data`、`public/images`。
-- `ENABLE_CONTENT_SYNC=true`：会从 `CONTENT_DIR` / `CONTENT_REPO_URL` 同步并映射：
-  - `content/posts -> src/content/posts`
-  - `content/spec -> src/content/spec`
-  - `content/data -> src/data`
-  - `content/images -> public/images`
-- 若目标目录已存在且不是符号链接，脚本可能先重命名为 `*.backup` 再链接/复制。删除本地内置内容前务必确认 `.env` 配置。
+目录说明（声明式）：
+- `content/posts`：博客文章目录。只放文章 `.md`，必须有 frontmatter（至少 `title`、`published`）。同步到 `src/content/posts`。
+- `content/spec`：说明页目录。放 `about.md`、`friends.md` 等说明页。同步到 `src/content/spec`。
+- `content/data`：结构化数据目录。放 `*.ts` 数据文件（如 `projects.ts`、`timeline.ts`）。同步到 `src/data`。
+- `content/images`：内容图片目录。放文章/相册/日记等图片资源。同步到 `public/images`，页面通过 `/images/...` 访问。
+- `posts` 目录下只能放符合文章 schema 的 Markdown（必须有 `title`、`published`）。
+- 不要在 `posts` 下放 `README.md` 这类说明文件，否则会导致 Astro 启动失败。
+- 若目标目录已存在且不是符号链接，脚本可能先改名为 `*.backup` 再链接/复制。
