@@ -141,14 +141,14 @@ export const siteConfig: SiteConfig = {
 		position: "center", // 等同于 object-position，仅支持 'top', 'center', 'bottom'。默认为 'center'
 
 		carousel: {
-			enable: true, // 为 true 时：为多张图片启用轮播。为 false 时：从数组中随机显示一张图片
+			enable: false, // 为 true 时：为多张图片启用轮播。为 false 时：从数组中随机显示一张图片
 			interval: 3, // 轮播间隔时间（秒）
 		},
 
 		waves: {
 			enable: true, // 是否启用水波纹效果（注意：此功能性能开销较大）
-			performanceMode: false, // 性能模式：减少动画复杂度(性能提升40%)
-			mobileDisable: false, // 移动端禁用
+			performanceMode: true, // 性能模式：减少动画复杂度(性能提升40%)
+			mobileDisable: true, // 移动端禁用
 		},
 
 		// PicFlow API支持(智能图片API)
@@ -368,7 +368,7 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.webp", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
+	avatar: "assets/images/master.jpg", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
 	name: "まつざか ゆき",
 	bio: "世界は大きい、君は行かなければならない",
 	typewriter: {
@@ -640,7 +640,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 };
 
 export const sakuraConfig: SakuraConfig = {
-	enable: false, // 默认关闭樱花特效
+	enable: true, // 默认关闭樱花特效
 	sakuraNum: 21, // 樱花数量
 	limitTimes: -1, // 樱花越界限制次数，-1为无限循环
 	size: {
