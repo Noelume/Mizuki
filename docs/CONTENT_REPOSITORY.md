@@ -38,7 +38,7 @@ cd Mizuki-Content
 git init
 
 # 创建基本目录结构
-mkdir -p posts spec data images/albums images/diary images/posts
+mkdir -p posts spec data images/albums images/diary images/posts images/anime
 
 # 创建 README
 echo "# Mizuki 博客内容" > README.md
