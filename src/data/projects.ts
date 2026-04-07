@@ -1,4 +1,4 @@
-// Project data configuration file
+﻿// Project data configuration file
 // Used to manage data for the project display page
 
 export interface Project {
@@ -15,82 +15,39 @@ export interface Project {
 	endDate?: string;
 	featured?: boolean;
 	tags?: string[];
-	visitUrl?: string; // 添加前往项目链接字段
+	visitUrl?: string;
 }
 
 export const projectsData: Project[] = [
 	{
 		id: "mizuki-blog",
-		title: "Mizuki Blog Theme",
+		title: "Mizuki",
 		description:
-			"Modern blog theme developed based on the Astro framework, supporting multilingual, dark mode, and responsive design features.",
+			"Astro + Svelte 驱动的个人博客主题项目，持续迭代页面体验、内容系统与可配置能力。",
 		image: "",
 		category: "web",
 		techStack: ["Astro", "TypeScript", "Tailwind CSS", "Svelte"],
-		status: "completed",
-		liveDemo: "https://blog.example.com",
-		sourceCode: "https://github.com/example/mizuki", // 更改为GitHub链接
-		visitUrl: "https://blog.example.com", // 添加前往项目链接
+		status: "in-progress",
+		sourceCode: "https://github.com/Noelume/Mizuki",
+		visitUrl: "https://github.com/Noelume/Mizuki",
 		startDate: "2024-01-01",
-		endDate: "2024-06-01",
 		featured: true,
-		tags: ["Blog", "Theme", "Open Source"],
+		tags: ["Mizuki", "Blog Theme", "Astro", "Svelte", "TypeScript"],
 	},
 	{
 		id: "portfolio-website",
-		title: "Personal Portfolio",
+		title: "Mizuki-Content",
 		description:
-			"Personal portfolio website showcasing project experience and technical skills.",
+			"用于管理 Mizuki 站点内容的独立仓库，集中维护文章、专题页、数据文件与图片资源。",
 		image: "",
 		category: "web",
-		techStack: ["React", "Next.js", "TypeScript", "Framer Motion"],
-		status: "completed",
-		liveDemo: "https://portfolio.example.com",
-		sourceCode: "https://github.com/example/portfolio",
-		visitUrl: "https://portfolio.example.com", // 添加前往项目链接
-		startDate: "2023-09-01",
-		endDate: "2023-12-01",
-		featured: true,
-		tags: ["Portfolio", "React", "Animation"],
-	},
-	{
-		id: "task-manager-app",
-		title: "Task Manager App",
-		description:
-			"Cross-platform task management application supporting team collaboration and project management.",
-		image: "",
-		category: "mobile",
-		techStack: ["React Native", "TypeScript", "Redux", "Firebase"],
+		techStack: ["Markdown", "TypeScript", "Git", "Content Management"],
 		status: "in-progress",
-		startDate: "2024-03-01",
-		tags: ["Mobile", "Productivity", "Team Collaboration"],
-	},
-	{
-		id: "data-visualization-tool",
-		title: "Data Visualization Tool",
-		description:
-			"Data visualization tool supporting multiple chart types and interactive analysis.",
-		image: "",
-		category: "web",
-		techStack: ["Vue.js", "D3.js", "TypeScript", "Node.js"],
-		status: "completed",
-		liveDemo: "https://dataviz.example.com",
-		visitUrl: "https://dataviz.example.com", // 添加前往项目链接
-		startDate: "2023-06-01",
-		endDate: "2023-11-01",
-		tags: ["Data Visualization", "Analytics", "Charts"],
-	},
-	{
-		id: "e-commerce-platform",
-		title: "E-commerce Platform",
-		description:
-			"Full-stack e-commerce platform including user management, product management, and order processing features.",
-		image: "",
-		category: "web",
-		techStack: ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
-		status: "planned",
-		startDate: "2024-07-01",
-		tags: ["E-commerce", "Full Stack", "Payment Integration"],
+		sourceCode: "https://github.com/Noelume/Mizuki-Content",
+		visitUrl: "https://github.com/Noelume/Mizuki-Content",
+		startDate: "2023-09-01",
+		featured: true,
+		tags: ["Mizuki", "Content", "Markdown", "Assets", "Data"],
 	},
 ];
 

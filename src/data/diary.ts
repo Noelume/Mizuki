@@ -19,7 +19,15 @@ const diaryData: DiaryItem[] = [
 			"The falling speed of cherry blossoms is five centimeters per second!",
 		date: "2025-01-15T10:30:00Z",
 		images: ["/images/diary/sakura.jpg", "/images/diary/1.jpg"],
-	},
+	},{
+		id: 2,
+		content: "Today I had a great day at the park!",
+		date: "2026-04-07T14:00:00Z",
+		images: ["/images/albums/MizukiExample/cover.jpg"],
+		location: "Central Park, New York",
+		mood: "Happy",
+		tags: ["park", "fun", "friends"],
+	}
 ];
 
 // 获取日记统计数据
