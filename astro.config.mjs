@@ -7,7 +7,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
-import { oddmisc } from "oddmisc";
+import { umami } from "oddmisc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeComponents from "rehype-components";
 import rehypeExternalLinks from "rehype-external-links";
@@ -18,7 +18,7 @@ import remarkMath from "remark-math";
 import remarkSectionize from "remark-sectionize";
 
 import { siteConfig } from "./src/config.ts";
-import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-copy-button.js";
+import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-copy-button.ts";
 import { pluginLanguageBadge } from "./src/plugins/expressive-code/language-badge.ts";
 import { AdmonitionComponent } from "./src/plugins/rehype-component-admonition.mjs";
 import { GithubCardComponent } from "./src/plugins/rehype-component-github-card.mjs";
@@ -39,7 +39,7 @@ export default defineConfig({
 	output: "static",
 
 	integrations: [
-		oddmisc({
+		umami({
 			umami: {
 				shareUrl: false,
 			},
