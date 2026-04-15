@@ -5,6 +5,7 @@
 
 import type { SakuraConfig } from "../../types/config";
 import { initSakura } from "../../utils/sakura-manager";
+import { getSakuraMode } from "../../utils/setting-utils";
 
 /**
  * Sakura 特效处理器类
@@ -19,17 +20,23 @@ export class SakuraEffectHandler {
 	 */
 	init(widgetConfigs: any): void {
 		const sakuraConfig = widgetConfigs?.sakura;
-		if (!sakuraConfig || !sakuraConfig.enable) {
+		// 读取本地存储的状态，如果没有则使用配置文件中的 enable 状态
+		const isSakuraEnabled = getSakuraMode();
+
+		if (!sakuraConfig || !isSakuraEnabled) {
 			return;
 		}
+
+		// 强制覆盖 config 里的 enable 状态，让 sakura-manager 知道可以运行
+		const configToUse = { ...sakuraConfig, enable: true };
 
 		// 避免重复初始化
 		if ((window as any).sakuraInitialized) {
 			return;
 		}
 
-		this.config = sakuraConfig;
-		initSakura(sakuraConfig);
+		this.config = configToUse;
+		initSakura(configToUse);
 		this.initialized = true;
 		(window as any).sakuraInitialized = true;
 	}

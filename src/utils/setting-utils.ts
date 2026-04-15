@@ -5,7 +5,7 @@ import {
 	// WALLPAPER_BANNER,
 } from "@constants/constants";
 
-import { siteConfig } from "@/config";
+import { sakuraConfig, siteConfig } from "@/config";
 import type { LIGHT_DARK_MODE, WALLPAPER_MODE } from "@/types/config";
 
 export function getDefaultHue(): number {
@@ -165,4 +165,16 @@ export function setWallpaperMode(mode: WALLPAPER_MODE): void {
 	window.dispatchEvent(
 		new CustomEvent("wallpaper-mode-change", { detail: { mode } }),
 	);
+}
+
+export function getSakuraMode(): boolean {
+	const stored = localStorage.getItem("sakura");
+	if (stored !== null) {
+		return stored === "true";
+	}
+	return sakuraConfig.enable;
+}
+
+export function setSakuraMode(enable: boolean): void {
+	localStorage.setItem("sakura", enable ? "true" : "false");
 }

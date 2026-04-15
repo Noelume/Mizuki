@@ -2,7 +2,14 @@
 	import I18nKey from "@i18n/i18nKey";
 	import { i18n } from "@i18n/translation";
 	import Icon from "@iconify/svelte";
-	import { getDefaultHue, getHue, setHue } from "@utils/setting-utils";
+	import {
+		getDefaultHue,
+		getHue,
+		setHue,
+		getSakuraMode,
+		setSakuraMode,
+	} from "@utils/setting-utils";
+	import { sakuraConfig } from "@/config";
 	import { onMount } from "svelte";
 
 	import type { DisplaySettingsProps } from "./types";
@@ -13,14 +20,31 @@
 	let defaultHue = 250;
 	let isMounted = false;
 
+	let isSakuraEnabled = false;
+
 	function resetHue() {
 		hue = defaultHue;
+	}
+
+	function toggleSakura() {
+		isSakuraEnabled = !isSakuraEnabled;
+		setSakuraMode(isSakuraEnabled);
+
+		// 动态派发事件，或者直接调用 manager 的方法
+		import("@utils/sakura-manager").then(({ initSakura, stopSakura }) => {
+			if (isSakuraEnabled) {
+				initSakura({ ...sakuraConfig, enable: true });
+			} else {
+				stopSakura();
+			}
+		});
 	}
 
 	onMount(() => {
 		isMounted = true;
 		defaultHue = getDefaultHue();
 		hue = getHue();
+		isSakuraEnabled = getSakuraMode();
 	});
 
 	$: if (isMounted && (hue || hue === 0)) {
@@ -79,6 +103,30 @@
 			step="5"
 			style="width: 100%"
 		/>
+	</div>
+
+	<div class="flex flex-row gap-2 mt-6 mb-3 items-center justify-between">
+		<div
+			class="flex gap-2 font-bold text-lg text-neutral-900 dark:text-neutral-100 transition relative ml-3
+            before:w-1 before:h-4 before:rounded-md before:bg-[var(--primary)]
+            before:absolute before:-left-3 before:top-[0.33rem]"
+		>
+			樱花特效 (Sakura)
+		</div>
+		<button
+			aria-label="Toggle Sakura"
+			class="relative w-12 h-6 rounded-full transition-colors duration-300 focus:outline-none"
+			class:bg-[var(--primary)]={isSakuraEnabled}
+			class:bg-gray-300={!isSakuraEnabled}
+			class:dark:bg-gray-600={!isSakuraEnabled}
+			on:click={toggleSakura}
+		>
+			<div
+				class="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-sm transition-transform duration-300 ease-in-out"
+				class:translate-x-1={!isSakuraEnabled}
+				class:translate-x-7={isSakuraEnabled}
+			></div>
+		</button>
 	</div>
 </div>
 

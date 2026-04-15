@@ -98,6 +98,7 @@
 			loading="eager"
 			fetchpriority="high"
 			class="w-full h-full object-cover transition-transform duration-300"
+			class:spinning={isPlaying && !isLoading}
 			class:animate-pulse={isLoading}
 		/>
 		<div
@@ -126,6 +127,7 @@
 			loading="eager"
 			fetchpriority="high"
 			class="w-full h-full object-cover transition-transform duration-300"
+			class:spinning={isPlaying && !isLoading}
 			class:animate-pulse={isLoading}
 		/>
 	</div>
@@ -133,7 +135,7 @@
 
 <style>
 	.cover-container img {
-		animation: spin-continuous 3s linear infinite;
+		animation: spin-and-breathe 14s linear infinite;
 		animation-play-state: paused;
 		transform-origin: center;
 	}
@@ -142,12 +144,33 @@
 		animation-play-state: running;
 	}
 
-	@keyframes spin-continuous {
-		from {
-			transform: rotate(0deg);
+	@keyframes spin-and-breathe {
+		0% {
+			transform: rotate(0deg) scale(1);
 		}
-		to {
-			transform: rotate(360deg);
+		12.5% {
+			transform: rotate(45deg) scale(1.06);
+		}
+		25% {
+			transform: rotate(90deg) scale(1);
+		}
+		37.5% {
+			transform: rotate(135deg) scale(1.06);
+		}
+		50% {
+			transform: rotate(180deg) scale(1);
+		}
+		62.5% {
+			transform: rotate(225deg) scale(1.06);
+		}
+		75% {
+			transform: rotate(270deg) scale(1);
+		}
+		87.5% {
+			transform: rotate(315deg) scale(1.06);
+		}
+		100% {
+			transform: rotate(360deg) scale(1);
 		}
 	}
 </style>
