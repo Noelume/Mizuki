@@ -98,7 +98,6 @@
 			loading="eager"
 			fetchpriority="high"
 			class="w-full h-full object-cover transition-transform duration-300"
-			class:spinning={isPlaying && !isLoading}
 			class:animate-pulse={isLoading}
 		/>
 		<div
@@ -127,7 +126,6 @@
 			loading="eager"
 			fetchpriority="high"
 			class="w-full h-full object-cover transition-transform duration-300"
-			class:spinning={isPlaying && !isLoading}
 			class:animate-pulse={isLoading}
 		/>
 	</div>
