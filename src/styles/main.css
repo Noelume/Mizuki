@@ -27,10 +27,19 @@
 }
 
 /* 导入 ZenMaruGothic-Medium 字体 */
-@font-face {
+/* @font-face {
   font-family: "ZenMaruGothic-Medium";
   src: url("/assets/font/ZenMaruGothic-Medium.ttf") format("truetype");
   font-weight: 500;
+  font-display: swap;
+} */
+
+/* 导入 Google Sans Flex 字体 */
+@font-face {
+  font-family: "Google Sans Flex";
+  src: url("/assets/font/GoogleSansFlex.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
   font-display: swap;
 }
 

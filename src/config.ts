@@ -53,13 +53,13 @@ export const siteConfig: SiteConfig = {
 	// 顶栏标题配置
 	navbarTitle: {
 		// 显示模式："text-icon" 显示图标+文本，"logo" 仅显示Logo
-		mode: "text-icon",
+		mode: "logo",
 		// 顶栏标题文本
-		text: "Noelume",
+		text: "mizuki",
 		// 顶栏标题图标路径，默认使用 public/assets/home/home.webp
-		icon: "assets/home/home.webp",
+		icon: "assets/home/logo-c-ethereal.svg",
 		// 网站Logo图片路径
-		logo: "assets/home/default-logo.webp",
+		logo: "assets/home/logo-c-ethereal.svg",
 	},
 
 	// 页面自动缩放配置
@@ -203,11 +203,11 @@ export const siteConfig: SiteConfig = {
 	generateOgImages: false, // 启用生成OpenGraph图片功能,注意开启后要渲染很长时间，不建议本地调试的时候开启
 	favicon: [
 		// 留空以使用默认 favicon
-		// {
-		//   src: '/favicon/icon.png',    // 图标文件路径
+		{
+		  src: '/favicon/mizuki-ribbon.svg',    // 图标文件路径
 		//   theme: 'light',              // 可选，指定主题 'light' | 'dark'
 		//   sizes: '32x32',              // 可选，图标大小
-		// }
+		}
 	],
 
 	// 字体配置
@@ -217,11 +217,18 @@ export const siteConfig: SiteConfig = {
 		asciiFont: {
 			// 英文字体 - 优先级最高
 			// 指定为英文字体则无论字体包含多大范围，都只会保留 ASCII 字符子集
-			fontFamily: "ZenMaruGothic-Medium",
+			fontFamily: "Google Sans Flex",
 			fontWeight: "400",
-			localFonts: ["ZenMaruGothic-Medium.ttf"],
+			localFonts: ["GoogleSansFlex.ttf"],
 			enableCompress: true, // 启用字体子集优化，减少字体文件大小
 		},
+		// 原有的英文字体配置 (已注释)
+		// asciiFont: {
+		// 	fontFamily: "ZenMaruGothic-Medium",
+		// 	fontWeight: "400",
+		// 	localFonts: ["ZenMaruGothic-Medium.ttf"],
+		// 	enableCompress: true,
+		// },
 		cjkFont: {
 			// 中日韩字体 - 作为回退字体
 			fontFamily: "萝莉体 第二版",
