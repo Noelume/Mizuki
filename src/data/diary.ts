@@ -14,19 +14,13 @@ export interface DiaryItem {
 // 示例日记数据
 const diaryData: DiaryItem[] = [
 	{
-		id: 1,
-		content:
-			"The falling speed of cherry blossoms is five centimeters per second!",
-		date: "2025-01-15T10:30:00Z",
-		images: ["/images/diary/sakura.jpg", "/images/diary/1.jpg"],
-	},{
 		id: 2,
-		content: "Today I had a great day at the park!",
+		content: "今天天气很不错，出门走走感觉心情都变好了。随手在网上下载了几张好看的图片，配在日记里当作今天的碎片分享吧~ 偶尔摸鱼发呆也是生活的一部分呢。",
 		date: "2026-04-07T14:00:00Z",
 		images: ["/images/albums/MizukiExample/cover.jpg"],
-		location: "Central Park, New York",
-		mood: "Happy",
-		tags: ["park", "fun", "friends"],
+		location: "中国",
+		mood: "Relaxed",
+		tags: ["日常", "摸鱼", "分享"],
 	}
 ];
 

@@ -1,4 +1,4 @@
-﻿// Timeline data configuration file
+// Timeline data configuration file
 // Used to manage data for the timeline page
 
 export interface TimelineItem {
@@ -25,160 +25,69 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
 	{
-		id: "internship-search-2026",
-		title: "正在找前端实习",
+		id: "current-status",
+		title: "日常迷茫中",
 		description:
-			"当前主线目标是拿到前端/前端工程化方向实习。重点准备简历、项目讲解、八股与算法，持续投递并复盘面试反馈。",
+			"不知道该干什么，每天在找点乐子和发呆之间反复横跳。随波逐流也是一种生活态度，顺其自然吧。",
 		type: "work",
 		startDate: "2026-03-01",
-		location: "上海 / 远程",
-		organization: "个人求职阶段",
-		position: "前端实习求职中",
-		skills: ["Astro", "TypeScript", "Tailwind CSS", "Node.js", "Git"],
+		location: "卧室 / 电脑前",
+		organization: "地球村",
+		position: "发呆体验官",
+		skills: ["发呆", "熬夜", "网上冲浪", "喝水"],
 		achievements: [
-			"完成求职版本项目重构（Mizuki + Mizuki-Content）",
-			"建立投递表与面试复盘模板",
-			"保持每周固定投递与模拟面试节奏",
+			"成功在屏幕前坐了一整天",
+			"想清楚了今天晚上吃什么",
 		],
-		links: [
-			{
-				name: "Mizuki 仓库",
-				url: "https://github.com/Noelume/Mizuki",
-				type: "project",
-			},
-			{
-				name: "Mizuki-Content 仓库",
-				url: "https://github.com/Noelume/Mizuki-Content",
-				type: "project",
-			},
-			{
-				name: "求职记录（示例）",
-				url: "https://www.notion.so/",
-				type: "other",
-			},
-		],
-		icon: "material-symbols:work-outline",
+		icon: "material-symbols:bed-outline",
 		color: "#22C55E",
 		featured: true,
 	},
 	{
-		id: "resume-portfolio-upgrade",
-		title: "简历与作品集升级",
+		id: "linux-customization",
+		title: "沉迷 Linux 桌面美化",
 		description:
-			"围绕实习投递场景，重写简历项目描述、补齐项目截图与可复现步骤，提升面试可讲述性。",
+			"花了好几天时间调整各种状态栏、窗口管理器和终端配色，虽然最后看起来好像和别人的也没太大区别，但是折腾的过程很解压。",
 		type: "project",
-		startDate: "2026-02-10",
-		endDate: "2026-03-20",
-		location: "线上",
-		organization: "个人项目",
-		position: "维护者",
-		skills: ["Markdown", "TypeScript", "UI 文案", "项目文档"],
+		startDate: "2026-02-15",
+		endDate: "2026-02-28",
+		location: "赛博空间",
+		position: "首席美化师",
+		skills: ["Linux", "Dotfiles", "Terminal", "配置抄袭大师"],
 		achievements: [
-			"统一项目与内容仓库的数据结构",
-			"补充文章/相册/友链等维护说明",
-			"形成需求-改动-验证闭环流程",
+			"翻阅了无数个 GitHub 上的 dotfiles 仓库",
+			"终端终于变得稍微顺眼了一点点"
 		],
-		links: [
-			{
-				name: "项目主页",
-				url: "https://github.com/Noelume/Mizuki",
-				type: "project",
-			},
-			{
-				name: "Astro 官方文档",
-				url: "https://docs.astro.build/",
-				type: "website",
-			},
-		],
-		icon: "material-symbols:code",
+		icon: "material-symbols:terminal",
 		color: "#6366F1",
 		featured: true,
 	},
 	{
-		id: "interview-prep-sprint",
-		title: "面试准备冲刺（算法 + 八股）",
+		id: "blog-tinkering",
+		title: "日常折腾博客",
 		description:
-			"针对前端实习高频问题集中训练，覆盖 JavaScript、浏览器机制、工程化与基础算法。",
-		type: "achievement",
+			"觉得以前的博客界面看腻了，于是换了新的外观，修修补补。主要就是为了找个借口不干正事。",
+		type: "project",
 		startDate: "2026-01-05",
-		endDate: "2026-02-28",
+		endDate: "2026-01-20",
 		location: "线上",
-		organization: "自学训练营",
-		position: "学习者",
-		skills: ["JavaScript", "TypeScript", "算法", "计算机网络", "浏览器原理"],
-		achievements: [
-			"整理高频面试题清单并完成首轮复习",
-			"建立错题与薄弱点复盘机制",
-			"每周进行 1-2 次模拟面试",
-		],
-		links: [
-			{
-				name: "LeetCode",
-				url: "https://leetcode.cn/",
-				type: "website",
-			},
-			{
-				name: "阶段证明（示例证书）",
-				url: "https://www.coursera.org/",
-				type: "certificate",
-			},
-		],
-		icon: "material-symbols:check-circle-outline",
+		skills: ["前端", "Markdown", "无脑折腾"],
+		icon: "material-symbols:code",
 		color: "#F59E0B",
 	},
 	{
-		id: "campus-study-phase",
-		title: "在校学习阶段（计算机相关）",
+		id: "anime-marathon",
+		title: "疯狂补番季",
 		description:
-			"系统学习计算机基础课程，并将课程作业逐步迁移为可展示的项目资产，为实习求职做准备。",
-		type: "education",
-		startDate: "2025-09-01",
-		endDate: "2026-01-15",
-		location: "学校",
-		organization: "计算机相关课程",
-		position: "学生",
-		skills: ["数据结构", "操作系统", "数据库基础", "软件工程"],
-		achievements: [
-			"完成课程项目并沉淀技术文档",
-			"形成可复用的学习与开发笔记模板",
-			"将学习内容映射到实习岗位要求",
-		],
-		icon: "material-symbols:school-outline",
+			"突然有了看番的兴致，把收藏夹里积攒了很久的列表清空了一小半。最爽的事情莫过于一口气看完一整季。",
+		type: "achievement",
+		startDate: "2025-10-01",
+		endDate: "2025-11-15",
+		location: "被窝",
+		skills: ["一目十行", "连续熬夜不困"],
+		icon: "material-symbols:movie-outline",
 		color: "#3B82F6",
-	},
-	{
-		id: "application-tracker-project",
-		title: "实习投递看板与节奏管理",
-		description:
-			"搭建并维护投递追踪表，记录公司、岗位、进度、反馈与下一步动作，确保求职节奏可视化。",
-		type: "project",
-		startDate: "2026-03-18",
-		endDate: "2026-04-30",
-		location: "线上",
-		organization: "个人求职系统",
-		position: "维护者",
-		skills: ["Notion/表格管理", "信息整理", "复盘方法"],
-		achievements: [
-			"统一投递状态定义（待投递/已投递/面试中/已结束）",
-			"建立每周复盘与策略调整机制",
-			"显著减少重复投递与遗漏跟进",
-		],
-		links: [
-			{
-				name: "牛客",
-				url: "https://www.nowcoder.com/",
-				type: "website",
-			},
-			{
-				name: "BOSS 直聘",
-				url: "https://www.zhipin.com/",
-				type: "other",
-			},
-		],
-		icon: "material-symbols:dashboard-outline",
-		color: "#14B8A6",
-		featured: true,
-	},
+	}
 ];
 
 // Get timeline statistics

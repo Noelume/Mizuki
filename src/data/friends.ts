@@ -19,17 +19,7 @@ export const friendsData: FriendItem[] = [
 		desc: "The web framework for content-driven websites",
 		siteurl: "https://github.com/withastro/astro",
 		tags: ["Framework"],
-	},
-	{
-		id: 2,
-		title: "Mizuki Docs",
-		imgurl:
-			"http://q.qlogo.cn/headimg_dl?dst_uin=3231515355&spec=640&img_type=jpg",
-		desc: "Mizuki User Manual",
-		siteurl: "https://docs.mizuki.mysqil.com",
-		tags: ["Docs"],
-	},
-	
+	}
 ];
 
 // 获取所有友情链接数据
