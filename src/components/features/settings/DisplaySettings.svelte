@@ -5,12 +5,13 @@
 	import {
 		getDefaultHue,
 		getHue,
-		setHue,
 		getSakuraMode,
+		setHue,
 		setSakuraMode,
 	} from "@utils/setting-utils";
-	import { sakuraConfig } from "@/config";
 	import { onMount } from "svelte";
+
+	import { sakuraConfig } from "@/config";
 
 	import type { DisplaySettingsProps } from "./types";
 

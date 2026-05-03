@@ -169,7 +169,7 @@ export const siteConfig: SiteConfig = {
 				"Keep it simple, stupid.",
 				"在这里记录一些微小的折腾与日常",
 				"Life is short, use Linux.",
-				"随便写写，慢慢生活"
+				"随便写写，慢慢生活",
 			],
 			typewriter: {
 				enable: true, // 启用副标题打字机效果
@@ -204,10 +204,10 @@ export const siteConfig: SiteConfig = {
 	favicon: [
 		// 留空以使用默认 favicon
 		{
-		  src: '/favicon/mizuki-ribbon.svg',    // 图标文件路径
-		//   theme: 'light',              // 可选，指定主题 'light' | 'dark'
-		//   sizes: '32x32',              // 可选，图标大小
-		}
+			src: "/favicon/mizuki-ribbon.svg", // 图标文件路径
+			//   theme: 'light',              // 可选，指定主题 'light' | 'dark'
+			//   sizes: '32x32',              // 可选，图标大小
+		},
 	],
 
 	// 字体配置
@@ -461,7 +461,8 @@ export const shareConfig: ShareConfig = {
 
 export const announcementConfig: AnnouncementConfig = {
 	title: "", // 公告标题，填空使用i18n字符串Key.announcement
-	content: "ブログへようこそ！これはサンプルの告知です", // 公告内容
+	content:
+		"欢迎来到 Noelume 的小世界！这里主要记录前端学习、项目折腾与生活日常。很高兴遇见你 ✨", // 公告内容
 	closable: true, // 允许用户关闭公告
 	link: {
 		enable: true, // 启用链接
