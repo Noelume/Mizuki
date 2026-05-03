@@ -54,3 +54,6 @@ src/data/bilibili-data.json
 
 # Lighthouse CI
 .lighthouseci/
+
+# node version
+.node-version
